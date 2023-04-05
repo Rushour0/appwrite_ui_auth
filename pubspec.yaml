@@ -4,12 +4,14 @@ version: 0.0.1
 homepage:
 
 environment:
-  sdk: '>=2.19.3 <3.0.0'
+  sdk: ">=2.19.3 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
+  appwrite: ^8.3.0
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.4
 
 dev_dependencies:
   flutter_test:
@@ -21,7 +23,8 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  assets:
+    - assets/images/
   # To add assets to your package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
