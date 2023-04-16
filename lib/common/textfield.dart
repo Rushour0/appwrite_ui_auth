@@ -7,10 +7,13 @@ class AppwriteTextField extends StatefulWidget {
     required this.controller,
     required this.labelText,
     this.obscureText = false,
+    this.phone = false,
+    this.errorText = '',
+    this.errorBool = false,
   });
   final TextEditingController controller;
-  final String labelText;
-  final bool obscureText;
+  final String labelText, errorText;
+  final bool obscureText, phone, errorBool;
 
   @override
   State<AppwriteTextField> createState() => _AppwriteTextFieldState();
@@ -42,6 +45,8 @@ class _AppwriteTextFieldState extends State<AppwriteTextField> {
           TextFormField(
             controller: widget.controller,
             obscureText: obscureText,
+            keyboardType:
+                widget.phone ? TextInputType.phone : TextInputType.text,
             style: TextStyle(
               color: AppwriteColors.text,
             ),
@@ -51,7 +56,7 @@ class _AppwriteTextFieldState extends State<AppwriteTextField> {
                 color: AppwriteColors.textFieldBorder,
               ),
               // labelText: widget.labelText,
-
+              errorText: widget.errorBool ? widget.errorText : null,
               suffixIcon: widget.obscureText
                   ? IconButton(
                       onPressed: () {

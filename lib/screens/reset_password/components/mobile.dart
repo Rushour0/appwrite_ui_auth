@@ -7,22 +7,22 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SigninMobile extends StatelessWidget {
-  const SigninMobile({
+class ResetPasswordMobile extends StatelessWidget {
+  const ResetPasswordMobile({
     super.key,
     required this.title,
     required this.successCallback,
-    required this.emailController,
+    required this.passwordAgainController,
     required this.passwordController,
-    required this.onSignin,
+    required this.onResetPassword,
   });
 
   final String title;
 
   final Function(Map<String, dynamic> userData) successCallback;
-  final Function() onSignin;
+  final Function() onResetPassword;
 
-  final TextEditingController emailController, passwordController;
+  final TextEditingController passwordAgainController, passwordController;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +73,7 @@ class SigninMobile extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                'Sign In',
+                                'Reset Password',
                                 style: TextStyle(
                                   color: AppwriteColors.text.withAlpha(192),
                                   fontSize: screenHeight * 0.035,
@@ -93,34 +93,39 @@ class SigninMobile extends StatelessWidget {
                 Column(
                   children: [
                     AppwriteTextField(
-                      controller: emailController,
-                      labelText: 'Email',
-                    ),
-                    AppwriteTextField(
                       controller: passwordController,
                       labelText: 'Password',
                       obscureText: true,
+                    ),
+                    AppwriteTextField(
+                      controller: passwordAgainController,
+                      labelText: 'Password Confirmation',
+                      obscureText: true,
+                      errorText: 'Passwords do not match',
+                      errorBool: passwordAgainController.text !=
+                          passwordController.text,
                     ),
                   ],
                 ),
                 Column(
                     children: [
                   AppwriteElevatedButton(
-                    text: 'Sign In',
-                    onPressed: onSignin,
+                    text: 'Reset Password',
+                    onPressed: (passwordController.text !=
+                                passwordAgainController.text ||
+                            passwordController.text == '')
+                        ? null
+                        : onResetPassword,
                   ),
                   RichText(
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'Forgot Password ?',
-                          
+                          text: 'Sign In ',
                           recognizer: TapGestureRecognizer()
                             ..onTap = () async {
-                              await Navigator.pushNamedAndRemoveUntil(
-                                  context,
-                                  AppwriteRoutes.forgotPassword,
-                                  (route) => false);
+                              await Navigator.pushNamedAndRemoveUntil(context,
+                                  AppwriteRoutes.signup, (route) => false);
                             },
                           style: TextStyle(
                             decoration: TextDecoration.underline,

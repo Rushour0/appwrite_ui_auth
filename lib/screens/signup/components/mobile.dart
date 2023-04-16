@@ -1,5 +1,7 @@
 import 'package:appwrite_ui_auth/appwrite_svg.dart';
+import 'package:appwrite_ui_auth/appwrite_ui_auth.dart';
 import 'package:appwrite_ui_auth/classes/colors.dart';
+import 'package:appwrite_ui_auth/classes/routes.dart';
 import 'package:appwrite_ui_auth/common/button.dart';
 import 'package:appwrite_ui_auth/common/textfield.dart';
 import 'package:flutter/gestures.dart';
@@ -11,14 +13,23 @@ class SignupMobile extends StatelessWidget {
     super.key,
     required this.title,
     required this.successCallback,
-    required this.signInRoute,
+    required this.nameController,
+    required this.emailController,
+    required this.passwordController,
+    required this.onSignup,
   });
 
-  final String title, signInRoute;
-  final Function(String?)? successCallback;
-  final TextEditingController _nameController = TextEditingController(),
-      _emailController = TextEditingController(),
-      _passwordController = TextEditingController();
+  /// App title or title of the screen
+  final String title;
+
+  /// Callback function to be called on successful login
+  /// The callback function takes a [Map<String, dynamic>] as an argument which contains the user data
+  /// Use this to navigate to the next screen
+  final Function(Map<String, dynamic> userData) successCallback;
+  final Function() onSignup;
+  final TextEditingController nameController,
+      emailController,
+      passwordController;
 
   final ValueKey<bool> checkbox = const ValueKey(false);
 
@@ -91,15 +102,15 @@ class SignupMobile extends StatelessWidget {
                 Column(
                   children: [
                     AppwriteTextField(
-                      controller: _nameController,
+                      controller: nameController,
                       labelText: 'Name',
                     ),
                     AppwriteTextField(
-                      controller: _emailController,
+                      controller: emailController,
                       labelText: 'Email',
                     ),
                     AppwriteTextField(
-                      controller: _passwordController,
+                      controller: passwordController,
                       labelText: 'Password',
                       obscureText: true,
                     ),
@@ -107,10 +118,7 @@ class SignupMobile extends StatelessWidget {
                 ),
                 Column(
                     children: [
-                  AppwriteElevatedButton(
-                    text: 'Sign Up',
-                    onPressed: () async {},
-                  ),
+                  AppwriteElevatedButton(text: 'Sign Up', onPressed: onSignup),
                   RichText(
                     text: TextSpan(
                       children: [
@@ -126,8 +134,8 @@ class SignupMobile extends StatelessWidget {
                           text: 'Sign In',
                           recognizer: TapGestureRecognizer()
                             ..onTap = () async {
-                              await Navigator.pushNamedAndRemoveUntil(
-                                  context, signInRoute, (route) => false);
+                              await Navigator.pushNamedAndRemoveUntil(context,
+                                  AppwriteRoutes.signin, (route) => false);
                             },
                           style: TextStyle(
                             decoration: TextDecoration.underline,

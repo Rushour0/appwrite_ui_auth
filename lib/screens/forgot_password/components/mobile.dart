@@ -1,4 +1,5 @@
 import 'package:appwrite_ui_auth/appwrite_svg.dart';
+import 'package:appwrite_ui_auth/appwrite_ui_auth.dart';
 import 'package:appwrite_ui_auth/classes/colors.dart';
 import 'package:appwrite_ui_auth/classes/routes.dart';
 import 'package:appwrite_ui_auth/common/button.dart';
@@ -7,20 +8,19 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SigninMobile extends StatelessWidget {
-  const SigninMobile({
+class ForgotPasswordMobile extends StatelessWidget {
+  const ForgotPasswordMobile({
     super.key,
     required this.title,
     required this.successCallback,
     required this.emailController,
     required this.passwordController,
-    required this.onSignin,
+    required this.onSend,
   });
 
   final String title;
-
   final Function(Map<String, dynamic> userData) successCallback;
-  final Function() onSignin;
+  final Function() onSend;
 
   final TextEditingController emailController, passwordController;
 
@@ -73,7 +73,7 @@ class SigninMobile extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                'Sign In',
+                                'Forgot Password',
                                 style: TextStyle(
                                   color: AppwriteColors.text.withAlpha(192),
                                   fontSize: screenHeight * 0.035,
@@ -96,31 +96,23 @@ class SigninMobile extends StatelessWidget {
                       controller: emailController,
                       labelText: 'Email',
                     ),
-                    AppwriteTextField(
-                      controller: passwordController,
-                      labelText: 'Password',
-                      obscureText: true,
-                    ),
                   ],
                 ),
                 Column(
                     children: [
                   AppwriteElevatedButton(
-                    text: 'Sign In',
-                    onPressed: onSignin,
+                    text: 'Send Password Reset Email',
+                    onPressed: onSend,
                   ),
                   RichText(
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'Forgot Password ?',
-                          
+                          text: 'Sign In',
                           recognizer: TapGestureRecognizer()
                             ..onTap = () async {
-                              await Navigator.pushNamedAndRemoveUntil(
-                                  context,
-                                  AppwriteRoutes.forgotPassword,
-                                  (route) => false);
+                              await Navigator.pushNamedAndRemoveUntil(context,
+                                  AppwriteRoutes.signin, (route) => false);
                             },
                           style: TextStyle(
                             decoration: TextDecoration.underline,

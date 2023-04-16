@@ -1,10 +1,10 @@
 import 'package:appwrite_ui_auth/classes/breakpoints.dart';
-import 'package:appwrite_ui_auth/screens/signin/components/mobile.dart';
+import 'package:appwrite_ui_auth/screens/phone_auth/components/mobile.dart';
 import 'package:appwrite_ui_auth/services/appwrite_service.dart';
 import 'package:flutter/material.dart';
 
-class AppwriteSignin extends StatefulWidget {
-  const AppwriteSignin({
+class AppwritePhoneAuth extends StatefulWidget {
+  const AppwritePhoneAuth({
     super.key,
     required this.title,
     required this.successCallback,
@@ -18,18 +18,17 @@ class AppwriteSignin extends StatefulWidget {
   /// Use this to navigate to the next screen
   final Function(Map<String, dynamic> userData) successCallback;
   @override
-  State<AppwriteSignin> createState() => _AppwriteSigninState();
+  State<AppwritePhoneAuth> createState() => _AppwritePhoneAuthState();
 }
 
-class _AppwriteSigninState extends State<AppwriteSignin> {
-  final TextEditingController emailController = TextEditingController(),
+class _AppwritePhoneAuthState extends State<AppwritePhoneAuth> {
+  final TextEditingController phoneNumberController = TextEditingController(),
       passwordController = TextEditingController();
 
-  void onSignin() async {
+  void onPhoneSignin() async {
     final Map<String, dynamic> response =
-        await AppwriteService.loginEmailAccount(
-      email: emailController.text,
-      password: passwordController.text,
+        await AppwriteService.createPhoneAccount(
+      phone: phoneNumberController.text,
     );
     if (response['error'] ?? false) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -49,12 +48,11 @@ class _AppwriteSigninState extends State<AppwriteSignin> {
     final double aspectRatio = MediaQuery.of(context).size.aspectRatio;
 
     if (screenWidth <= BreakPoints.md.value) {
-      return SigninMobile(
+      return PhoneAuthMobile(
         title: widget.title,
         successCallback: widget.successCallback,
-        emailController: emailController,
-        passwordController: passwordController,
-        onSignin: onSignin,
+        phoneNumberController: phoneNumberController,
+        onSend: onPhoneSignin,
       );
     } else {
       return Container();
