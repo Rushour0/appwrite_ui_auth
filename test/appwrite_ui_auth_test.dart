@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:appwrite_ui_auth/appwrite_ui_auth.dart';
 
 void main() {
   test('adds one to input values', () {

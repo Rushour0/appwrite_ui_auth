@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:appwrite_ui_auth/classes/breakpoints.dart';
 import 'package:appwrite_ui_auth/screens/signin/components/mobile.dart';
 import 'package:appwrite_ui_auth/services/appwrite_service.dart';
@@ -44,9 +46,7 @@ class _AppwriteSigninState extends State<AppwriteSignin> {
 
   @override
   Widget build(BuildContext context) {
-    final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
-    final double aspectRatio = MediaQuery.of(context).size.aspectRatio;
 
     if (screenWidth <= BreakPoints.md.value) {
       return SigninMobile(

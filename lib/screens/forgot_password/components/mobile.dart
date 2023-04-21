@@ -1,5 +1,4 @@
 import 'package:appwrite_ui_auth/appwrite_svg.dart';
-import 'package:appwrite_ui_auth/appwrite_ui_auth.dart';
 import 'package:appwrite_ui_auth/classes/colors.dart';
 import 'package:appwrite_ui_auth/classes/routes.dart';
 import 'package:appwrite_ui_auth/common/button.dart';

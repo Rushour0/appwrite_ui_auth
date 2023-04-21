@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:appwrite_ui_auth/classes/breakpoints.dart';
 import 'package:appwrite_ui_auth/screens/forgot_password/components/mobile.dart';
 import 'package:appwrite_ui_auth/services/appwrite_service.dart';
@@ -31,8 +33,6 @@ class _AppwriteForgotPasswordState extends State<AppwriteForgotPassword> {
       email: emailController.text,
     );
 
-    print(response);
-
     if (response['error'] ?? false) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -52,9 +52,7 @@ class _AppwriteForgotPasswordState extends State<AppwriteForgotPassword> {
 
   @override
   Widget build(BuildContext context) {
-    final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
-    final double aspectRatio = MediaQuery.of(context).size.aspectRatio;
 
     if (screenWidth <= BreakPoints.md.value) {
       return ForgotPasswordMobile(

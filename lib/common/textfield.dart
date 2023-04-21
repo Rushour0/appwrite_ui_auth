@@ -31,7 +31,7 @@ class _AppwriteTextFieldState extends State<AppwriteTextField> {
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
-    final double screenWidth = MediaQuery.of(context).size.width;
+
     return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -79,13 +79,13 @@ class _AppwriteTextFieldState extends State<AppwriteTextField> {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: AppwriteColors.primary,
                 ),
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: AppwriteColors.primary,
                 ),
               ),

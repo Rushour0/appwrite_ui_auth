@@ -1,5 +1,4 @@
 import 'package:appwrite_ui_auth/appwrite_svg.dart';
-import 'package:appwrite_ui_auth/appwrite_ui_auth.dart';
 import 'package:appwrite_ui_auth/classes/colors.dart';
 import 'package:appwrite_ui_auth/classes/routes.dart';
 import 'package:appwrite_ui_auth/common/button.dart';
@@ -9,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SignupMobile extends StatelessWidget {
-  SignupMobile({
+  const SignupMobile({
     super.key,
     required this.title,
     required this.successCallback,

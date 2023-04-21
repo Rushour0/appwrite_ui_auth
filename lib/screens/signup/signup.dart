@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:appwrite_ui_auth/appwrite_ui_auth.dart';
 import 'package:appwrite_ui_auth/classes/breakpoints.dart';
 import 'package:appwrite_ui_auth/screens/signup/components/mobile.dart';
@@ -48,7 +50,6 @@ class AppwriteSignupState extends State<AppwriteSignup> {
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
-    final double aspectRatio = MediaQuery.of(context).size.aspectRatio;
 
     if (screenWidth <= BreakPoints.md.value) {
       return SignupMobile(

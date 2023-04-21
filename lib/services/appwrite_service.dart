@@ -14,10 +14,10 @@ class AppwriteService {
   factory AppwriteService() => _instance;
 
   /// Appwrite client
-  static Client _client = Client();
+  static final Client _client = Client();
 
   /// Appwrite account
-  static Account _account = Account(_client);
+  static final Account _account = Account(_client);
 
   /// Appwrite session data
   static models.Session? _session = _storage.hasData('session')

@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:appwrite_ui_auth/classes/breakpoints.dart';
 import 'package:appwrite_ui_auth/screens/reset_password/components/mobile.dart';
 import 'package:appwrite_ui_auth/services/appwrite_service.dart';
@@ -51,7 +53,7 @@ class _AppwriteResetPasswordState extends State<AppwriteResetPassword> {
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Password reset successful'),
         ),
       );
@@ -61,9 +63,7 @@ class _AppwriteResetPasswordState extends State<AppwriteResetPassword> {
 
   @override
   Widget build(BuildContext context) {
-    final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
-    final double aspectRatio = MediaQuery.of(context).size.aspectRatio;
 
     if (screenWidth <= BreakPoints.md.value) {
       return ResetPasswordMobile(
