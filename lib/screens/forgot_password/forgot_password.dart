@@ -1,7 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:appwrite_ui_auth/classes/breakpoints.dart';
-import 'package:appwrite_ui_auth/screens/forgot_password/components/mobile.dart';
+import 'package:appwrite_ui_auth/screens/forgot_password/components/forgot_password_mobile.dart';
 import 'package:appwrite_ui_auth/services/appwrite_service.dart';
 import 'package:flutter/material.dart';
 

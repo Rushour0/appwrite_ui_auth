@@ -1,3 +1,3 @@
-# 0.0.1
+# 0.0.2
 
-This is the first release for this package.
+- Improved documentation and filing system.

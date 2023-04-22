@@ -1,7 +1,7 @@
 name: appwrite_ui_auth
 description: A dart package providing pre-built screens for integration of appwrite authentication in your app.
-version: 0.0.1
-homepage: https://github.com/Rushour0/appwrite_ui_auth/blob/main/README.md
+version: 0.0.2
+homepage: https://github.com/Rushour0/appwrite_ui_auth/blob/master/README.md
 repository: https://github.com/Rushour0/appwrite_ui_auth
 
 environment:

@@ -2,16 +2,27 @@
 
 Appwrite UI Auth is a set of screens and variable configurations used to help design and integrate Appwrite Authentication
 
+## Feature Support
+
+| Feature              | Android | iOS |
+| -------------------- | ------- | --- |
+| Email Sign Up        | ✓       | ✓   |
+| Email Sign In        | ✓       | ✓   |
+| Reset Password       | ✓       | ✓   |
+| Phone Auth           | X       | X   |
+| Other Auth Providers | X       | X   |
+*Rest of the features are in development*
 ## Installation
 
 ```
 flutter pub add appwrite_ui_auth
 ```
 
-## Example 
+## Example
 
 Below is an example on how to use the auth. Make sure to `await` the init method.
 The class `AppwriteRoutes` makes it easier to find the `/` links for the screens. Using these routes is mandatory and not repeating the same routes for other screens should be taken care of.
+
 ```
 import 'package:appwrite_ui_auth/appwrite_ui_auth.dart';
 import 'package:appwrite_ui_auth/classes/colors.dart';
@@ -117,10 +128,12 @@ class _MyAppState extends State<MyApp> {
 ## Screenshots
 
 Here are a few screens used to integrate login and signup with the help of the package
+
 <table> <tr> <td>Sign Up</td><td>Sign In</td><tr>
 <tr><td><img src="https://user-images.githubusercontent.com/72869428/230188843-69fa9a93-c287-4f1a-95cb-57de2a8719ec.jpeg"> </td> <td> <img src="https://user-images.githubusercontent.com/72869428/230187320-fd2d2d7d-0164-44d8-884c-e1ac31918f11.jpeg"></td></tr>></table>
 
 Look of the screens overall
+
 <table>
 <tr><td>Multiple screens of auth and in dark & light themes</td></tr>
 <tr><td>

@@ -114,7 +114,6 @@ class SigninMobile extends StatelessWidget {
                       children: [
                         TextSpan(
                           text: 'Forgot Password ?',
-                          
                           recognizer: TapGestureRecognizer()
                             ..onTap = () async {
                               await Navigator.pushNamedAndRemoveUntil(

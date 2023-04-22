@@ -2,7 +2,7 @@
 
 import 'package:appwrite_ui_auth/appwrite_ui_auth.dart';
 import 'package:appwrite_ui_auth/classes/breakpoints.dart';
-import 'package:appwrite_ui_auth/screens/signup/components/mobile.dart';
+import 'package:appwrite_ui_auth/screens/signup/components/signup_mobile.dart';
 import 'package:flutter/material.dart';
 
 class AppwriteSignup extends StatefulWidget {
