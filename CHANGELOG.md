@@ -1,3 +1,3 @@
-# 0.0.2
+# 0.0.3
 
-- Improved documentation and filing system.
+- Added recovery param to reset password route
