@@ -12,6 +12,7 @@ void main() async {
   await AppwriteService.init(
     endpoint: 'https://appwrite.loca.lt/v1',
     projectId: 'appwrite-auth-ui',
+    recovery: 'https://dl-appwrite.loca.lt/reset-password',
     selfSigned: true,
   );
   runApp(const MyApp());

@@ -19,6 +19,9 @@ class AppwriteService {
   /// Appwrite account
   static final Account _account = Account(_client);
 
+  // Appwrite recovery link
+  static String? _recovery;
+
   /// Appwrite session data
   static models.Session? _session = _storage.hasData('session')
       ? models.Session.fromMap(_storage.read('session'))
@@ -46,6 +49,9 @@ class AppwriteService {
     /// Project ID from Appwrite console
     required String projectId,
 
+    // Recovery link
+    String? recovery,
+
     /// selfSigned is used to set the self signed certificate - default is true
     /// `true` only for development
     bool selfSigned = true,
@@ -55,6 +61,7 @@ class AppwriteService {
       ..setEndpoint(endpoint)
       ..setProject(projectId)
       ..setSelfSigned(status: selfSigned);
+    _recovery = recovery;
   }
 
   /// Returns a map with the following keys:
@@ -145,7 +152,7 @@ class AppwriteService {
     try {
       final models.Token token = await account.createRecovery(
         email: email,
-        url: 'https://dl-appwrite.loca.lt/reset-password',
+        url: _recovery ?? _client.endPoint,
       );
 
       _token = token;
